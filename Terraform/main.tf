@@ -3,6 +3,7 @@ terraform{
     location = var.resource_group_location
     name     = "${random_pet.prefix.id}-rg"
   }
+
   
   # Create virtual network
   resource "azurerm_virtual_network" "my_terraform_network" {
