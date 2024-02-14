@@ -12,7 +12,6 @@ resource "azurerm_resource_group" "rg" {
   name     = "${random_pet.prefix.id}-rg"
 }
 
-
 # Create virtual network
 resource "azurerm_virtual_network" "my_terraform_network" {
   name                = "${random_pet.prefix.id}-vnet"
@@ -96,7 +95,6 @@ resource "azurerm_storage_account" "my_storage_account" {
   account_replication_type = "LRS"
 }
 
-
 # Create virtual machine
 resource "azurerm_windows_virtual_machine" "main" {
   name                  = "${var.prefix}-vm"
@@ -119,7 +117,6 @@ resource "azurerm_windows_virtual_machine" "main" {
     sku       = "2022-datacenter-azure-edition"
     version   = "latest"
   }
-
 
   boot_diagnostics {
     storage_account_uri = azurerm_storage_account.my_storage_account.primary_blob_endpoint
@@ -165,4 +162,3 @@ resource "random_pet" "prefix" {
   prefix = var.prefix
   length = 1
 }
-
